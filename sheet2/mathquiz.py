@@ -1,3 +1,4 @@
+import time
 correct_answer = 0
 for x in range(10):
     from random import randint
@@ -39,7 +40,8 @@ else:
         else:
             print()
             print("BOOOOOOO")
-    print("Now that you answered these 5 hard questions I will show you the results.")
+    print("Now that you answered these 5 hard questions I will show you the results...")
+    time.sleep(3)
     print("You got " + str(correct_answer) + " of them total right.")
 if correct_answer < 15:
     print("Better luck next time")
