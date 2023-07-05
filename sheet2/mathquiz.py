@@ -14,6 +14,7 @@ for x in range(10):
     else:
         print()
         print("Good try")
+print()
 print("There was 10 questions and you got " + str(correct_answer) + " of them right.")
 if correct_answer>=8:
     print("Nice job!")
