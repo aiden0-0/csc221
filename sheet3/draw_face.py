@@ -2,14 +2,17 @@ from gasp import*
 
 begin_graphics()
 
-Circle((300,200),100)
-Circle((250, 200), 20)
-Circle((350,200),20)
-Line((250,150), (300,170))
-Line((250,150), (300,150))
-Arc((300,150), 30, 225, 315)
-Arc((250,220), 30, 180, 0)
-Arc((350,220),30,180,0)
+def drawface(x,y):
+    Circle((x,y), 40)
+    Circle ((x-20,y),5)
+    Circle((x+20,y),5)
+    Line((x,y+10), (x-10, y-10))
+    Line((x-10,y-10),(x+10,y-10))
+    Arc((x,y), 30, 225, 315)
+    
+for col in range(40, 700,80):
+    for row in range(40, 300, 80):
+        drawface(col,row)
 
 update_when('key_pressed')
 end_graphics()
