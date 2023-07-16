@@ -1,14 +1,26 @@
 from random import randint
+
+def guessing_game()
 print("I've thought of a random number between 1 and 1000")
 print()
-
+guess=0
+number = randint(1,1000)
 while True:
-    number = randint(1,1000)
-    answer = input("Guess what that number is! ")
-    answer= int(answer)
-    if answer < number :
-        print("Your guess was too low!")
+    answer = int(input("Guess what that number is! "))
+    if answer<number:
+        guess = guess+1
+        print("Too low!")
+        print()
+    elif answer>number:
+        guess = guess+1
+        print("Too high!")
         print()
     else:
-        print("Your guess was too high")
-        print()
+        guess = guess+1
+        print("You got it!")
+        break
+print("Your number of guesses was", guess)
+
+playagain = input("Would you like to play again?")
+if playagain == "yes":
+    print()
