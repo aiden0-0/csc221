@@ -5,9 +5,11 @@ player_y = randint(0,47)
 
 def place_player():
     print("Here I am!")
-    Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
+    c = Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
 
 def move_player():
+    global c
+    c = move_to(c, (player_x, player_y ))
     print("I'm moving...")
     update_when('key_pressed')
 
