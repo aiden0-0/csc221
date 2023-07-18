@@ -13,14 +13,15 @@ def move_player():
     print('movin')
     key = update_when('key_pressed')
     
-    if key == 'Up' and player_y < 480:
-        player_y += 1
+    if key == 'Up' and player_y < 47:
+        player_y += 3
     if key == 'Left' and player_x > 0:
-        player_x -= 1
+        player_x -= 3
     if key == 'Down' and player_y > 0:
-        player_y -= 1
-    if key == 'Right' and player_x < 640:
-        player_x += 1
+        player_y -= 3
+    if key == 'Right' and player_x < 63:
+        player_x += 3 
+
     move_to(c, (player_x, player_y ))
     remove_from_screen(c)
 
