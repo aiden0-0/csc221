@@ -1,6 +1,6 @@
 from gasp import *
 from random import randint
-
+telecounter = 0
 def place_robots():
     global b, botx, boty
     botx = randint(0,63)
@@ -10,7 +10,6 @@ def place_robots():
 
 def movebot():
     global botx, boty, b
-    print('bots movin')
     if botx > player_x:
         botx -= 1
     if botx < player_x:
@@ -29,8 +28,7 @@ def place_player():
     
 
 def move_player():
-    global p, player_x, player_y
-    print('movin')
+    global p, player_x, player_y, telecounter
     key = update_when('key_pressed')
     
     if key == 'Up' and player_y < 47:
@@ -72,8 +70,12 @@ def move_player():
 
     move_to(p, (10*player_x, 10*player_y ))
     if key == 'space':
-        remove_from_screen(p)
-        place_player()
+        telecounter = telecounter + 1
+        if telecounter <= 10:
+            print("You have " + str(10 - telecounter) + " teleports left")
+            remove_from_screen(p)
+            place_player()
+
 def collision():
     global done
     if botx - 1  <= player_x <= botx + 1  and boty - 1 <= player_y <= boty +1 :
@@ -87,7 +89,7 @@ done = False
 
 place_player()
 place_robots()
-
+    
 while not done:
     move_player()
     collision()
